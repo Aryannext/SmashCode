@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Aprender</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <span>duolingo</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active"><i class="fas fa-home"></i> APRENDER</li>
+            <li><i class="fas fa-language"></i> LETRAS</li>
+            <li><i class="fas fa-shield-halved"></i> LIGAS</li>
+            <li><i class="fas fa-bullseye"></i> DESAFÍOS</li>
+            <li><i class="fas fa-shop"></i> TIENDA</li>
+            <li><i class="fas fa-user"></i> PERFIL</li>
+            <li><i class="fas fa-ellipsis"></i> MÁS</li>
+        </ul>
+    </nav>
+
+    <main class="content learning-path-view">
+        <div class="main-column">
+            <!-- Green Header Section -->
+            <div class="unit-header">
+                <div class="unit-info">
+                    <div class="back-btn"><i class="fas fa-arrow-left"></i> COMPETENCIA: ADM. MEDICAMENTOS</div>
+                    <h1 id="result-name">Vía Oral y Tópica</h1>
+                </div>
+                <button class="guide-btn"><i class="fas fa-book-open"></i> GUÍA</button>
+            </div>
+
+            <!-- The Path -->
+            <div class="path-container">
+                <div class="path-item current">
+                    <div class="node-wrapper">
+                        <span class="tooltip">EMPEZAR</span>
+                        <div class="node star"><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+
+                <div class="path-item locked">
+                    <div class="node-wrapper">
+                        <div class="node book"><i class="fas fa-book"></i></div>
+                    </div>
+                </div>
+
+                <div class="path-item locked offset-right">
+                    <div class="node-wrapper">
+                        <div class="node star-locked"><i class="fas fa-star"></i></div>
+                        <img src="https://d35aaqx5ub95lt.cloudfront.net/images/path/ed96996628b030f25e4f40f092305a42.svg" class="duo-mascot" alt="Duo">
+                    </div>
+                </div>
+
+                <div class="path-item locked offset-left">
+                    <div class="node-wrapper">
+                        <div class="node chest"><i class="fas fa-box-open"></i></div>
+                    </div>
+                </div>
+
+                <div class="path-item locked">
+                    <div class="node-wrapper">
+                        <div class="node star-locked"><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+
+                <div class="path-item locked offset-right">
+                    <div class="node-wrapper">
+                        <div class="node trophy"><i class="fas fa-trophy"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-column">
+            <div class="right-stats-bar">
+                <div class="stat"><img src="https://d35aaqx5ub95lt.cloudfront.net/images/flags/us.svg" width="25"></div>
+                <div class="stat fire"><i class="fas fa-fire"></i> 0</div>
+                <div class="stat gem"><i class="fas fa-gem"></i> 500</div>
+                <div class="stat heart"><i class="fas fa-heart"></i> 5</div>
+            </div>
+
+            <div class="card promo-card">
+                <h3>¡Compite en las Ligas!</h3>
+                <div class="promo-content">
+                    <div class="lock-icon"><i class="fas fa-lock"></i></div>
+                    <p>Completa 5 lecciones más para empezar a competir</p>
+                </div>
+            </div>
+
+            <div class="card daily-card">
+                <div class="card-header">
+                    <h3>Desafíos del día</h3>
+                    <a href="#">VER TODOS</a>
+                </div>
+                <div class="challenge-item">
+                    <i class="fas fa-bolt"></i>
+                    <div class="challenge-info">
+                        <p>Gana 10 XP</p>
+                        <div class="mini-progress-bar">
+                            <div class="mini-progress-fill" style="width: 0%;"></div>
+                            <i class="fas fa-box"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card signup-card">
+                <h3>¡Crea un perfil para guardar tu progreso!</h3>
+                <button class="btn-create">CREAR PERFIL</button>
+                <button class="btn-login">INGRESAR</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
