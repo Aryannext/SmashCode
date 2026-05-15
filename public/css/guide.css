@@ -1,0 +1,165 @@
+/* ============================================
+   GUIDE PAGE STYLES — SmashCode
+   ============================================ */
+
+.guide-content {
+    flex-direction: column;
+}
+
+.guide-main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    width: 100%;
+}
+
+.back-link {
+    color: #1cb0f6;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.back-link:hover {
+    color: #1899d6;
+}
+
+.guide-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.guide-mascot {
+    flex-shrink: 0;
+}
+
+.guide-header-text h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #3c3c3c;
+    margin-bottom: 5px;
+}
+
+.guide-header-text p {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.5;
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #e5e5e5;
+    margin: 25px 0;
+}
+
+.section-title {
+    color: #1cb0f6;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+/* Term Cards */
+.term-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.term-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #e5e5e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1cb0f6;
+    font-size: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.term-icon:hover {
+    background: #ddf4ff;
+    border-color: #1cb0f6;
+}
+
+.term-word {
+    font-weight: 800;
+    font-size: 17px;
+    color: #3c3c3c;
+    margin-bottom: 3px;
+}
+
+.term-meaning {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+}
+
+/* Concept Cards */
+.concept-card {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    border: 2px solid #e5e5e5;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: all 0.2s;
+}
+
+.concept-card:hover {
+    border-color: #1cb0f6;
+    box-shadow: 0 4px 12px rgba(28, 176, 246, 0.1);
+}
+
+.concept-icon {
+    width: 50px;
+    height: 50px;
+    background: #ddf4ff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #1cb0f6;
+    flex-shrink: 0;
+}
+
+.concept-content h3 {
+    font-weight: 800;
+    font-size: 18px;
+    color: #3c3c3c;
+    margin-bottom: 10px;
+}
+
+.concept-content ul,
+.concept-content ol {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.concept-content li strong {
+    color: #3c3c3c;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

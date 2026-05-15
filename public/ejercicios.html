@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Ejercicios de Repaso</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar" id="main-sidebar"></nav>
+
+    <main class="content module-view">
+        <div class="module-header">
+            <i class="fas fa-clipboard-check header-icon" style="color: #ff9600;"></i>
+            <div>
+                <h1>Ejercicios de Repaso</h1>
+                <p>Evalúa tu conocimiento con quices rápidos por sección. Ideal para repasar antes de cada turno.</p>
+            </div>
+        </div>
+
+        <div class="quiz-sections">
+            <!-- Section 1 -->
+            <div class="quiz-section-card">
+                <div class="quiz-section-header">
+                    <div class="quiz-icon" style="background: #d7ffb8;"><i class="fas fa-pills" style="color: #58cc02;"></i></div>
+                    <div class="quiz-section-info">
+                        <h3>Vía Oral y Tópica</h3>
+                        <p>Administración de medicamentos</p>
+                    </div>
+                </div>
+                <div class="quiz-stats">
+                    <div class="quiz-stat">
+                        <span class="stat-num">6</span>
+                        <span class="stat-txt">preguntas</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="stat-num">--</span>
+                        <span class="stat-txt">mejor nota</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="stat-num">10</span>
+                        <span class="stat-txt">XP</span>
+                    </div>
+                </div>
+                <button class="btn-quiz" onclick="window.location.href='/lesson.html'">
+                    <i class="fas fa-play"></i> INICIAR QUIZ
+                </button>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="quiz-section-card">
+                <div class="quiz-section-header">
+                    <div class="quiz-icon" style="background: #ddf4ff;"><i class="fas fa-heart-pulse" style="color: #1cb0f6;"></i></div>
+                    <div class="quiz-section-info">
+                        <h3>Signos Vitales</h3>
+                        <p>Medición y registro</p>
+                    </div>
+                </div>
+                <div class="quiz-stats">
+                    <div class="quiz-stat">
+                        <span class="stat-num">8</span>
+                        <span class="stat-txt">preguntas</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="stat-num">--</span>
+                        <span class="stat-txt">mejor nota</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="stat-num">15</span>
+                        <span class="stat-txt">XP</span>
+                    </div>
+                </div>
+                <button class="btn-quiz" onclick="window.location.href='/lesson.html'">
+                    <i class="fas fa-play"></i> INICIAR QUIZ
+                </button>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="quiz-section-card">
+                <div class="quiz-section-header">
+                    <div class="quiz-icon" style="background: #fff3dd;"><i class="fas fa-syringe" style="color: #ff9600;"></i></div>
+                    <div class="quiz-section-info">
+                        <h3>Vía Parenteral</h3>
+                        <p>Inyecciones y vías intravenosas</p>
+                    </div>
+                </div>
+                <div class="quiz-stats">
+                    <div class="quiz-stat">
+                        <span class="stat-num">10</span>
+                        <span class="stat-txt">preguntas</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="stat-num">--</span>
+                        <span class="stat-txt">mejor nota</span>
+                    </div>
+                    <div class="quiz-stat">
+                        <span class="stat-num">20</span>
+                        <span class="stat-txt">XP</span>
+                    </div>
+                </div>
+                <button class="btn-quiz" onclick="window.location.href='/lesson.html'">
+                    <i class="fas fa-play"></i> INICIAR QUIZ
+                </button>
+            </div>
+
+            <!-- Section 4 (locked) -->
+            <div class="quiz-section-card locked-card">
+                <div class="quiz-section-header">
+                    <div class="quiz-icon" style="background: #e5e5e5;"><i class="fas fa-bed-pulse" style="color: #afafaf;"></i></div>
+                    <div class="quiz-section-info">
+                        <h3>Cuidado del Paciente</h3>
+                        <p>Higiene, movilización y confort</p>
+                    </div>
+                </div>
+                <div class="quiz-stats">
+                    <div class="quiz-stat">
+                        <span class="stat-num"><i class="fas fa-lock" style="color:#ccc;"></i></span>
+                        <span class="stat-txt">bloqueado</span>
+                    </div>
+                </div>
+                <button class="btn-quiz locked-btn" disabled>
+                    <i class="fas fa-lock"></i> BLOQUEADO
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/shared.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSidebar('ejercicios');
+        });
+    </script>
+</body>
+</html>

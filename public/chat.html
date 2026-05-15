@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Diálogo Clínico</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="chat-body">
+
+    <!-- Chat Top Bar -->
+    <div class="chat-top-bar">
+        <button class="close-btn" onclick="window.location.href='/dialogos.html'"><i class="fas fa-arrow-left"></i></button>
+        <div class="chat-scenario-info">
+            <h3 id="scenario-title">Patient Intake</h3>
+            <span id="scenario-level">Nivel Básico</span>
+        </div>
+        <div class="chat-hearts">
+            <i class="fas fa-heart"></i> <span>5</span>
+        </div>
+    </div>
+
+    <!-- Chat Context Banner -->
+    <div class="chat-context" id="chat-context">
+        <div class="context-icon"><i class="fas fa-info-circle"></i></div>
+        <div class="context-text">
+            <strong>Escenario:</strong> Eres un enfermero/a atendiendo a un paciente que acaba de llegar al hospital. 
+            Debes recoger sus datos personales y motivo de consulta <strong>en inglés</strong>.
+        </div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div class="chat-messages" id="chat-messages">
+        <!-- Messages will be injected by JS -->
+    </div>
+
+    <!-- Correction Banner (hidden by default) -->
+    <div class="correction-banner" id="correction-banner" style="display:none;">
+        <div class="correction-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="correction-text" id="correction-text"></div>
+        <button class="correction-close" onclick="document.getElementById('correction-banner').style.display='none'"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input-bar">
+        <button class="mic-btn" title="Hablar"><i class="fas fa-microphone"></i></button>
+        <input type="text" id="user-input" placeholder="Escribe tu respuesta en inglés..." autocomplete="off">
+        <button class="send-btn" id="send-btn" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+
+    <script src="js/chat.js"></script>
+</body>
+</html>

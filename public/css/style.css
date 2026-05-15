@@ -47,17 +47,25 @@ body {
 
 .nav-links li {
     padding: 12px 15px;
+    border: 2px solid transparent;
     border-radius: 12px;
     margin-bottom: 8px;
     cursor: pointer;
     font-weight: 700;
     font-size: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
     color: var(--duo-text-light);
     transition: background 0.2s;
 }
+
+.nav-links a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
 
 .nav-links li i {
     width: 25px;
@@ -141,6 +149,12 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    overflow: visible;
+    z-index: 1;
+}
+
+.path-item.current {
+    z-index: 50;
 }
 
 .path-item.offset-right { transform: translateX(40px); }
@@ -165,6 +179,19 @@ body {
     background: transparent;
     border: 8px solid #e5e5e5; /* Anillo real */
     border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.path-item.current .node-wrapper::before {
+    display: none;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 0;
     pointer-events: none;
 }
@@ -223,6 +250,79 @@ body {
     transition: all 0.1s ease;
 }
 
+/* Popover Overlay */
+.popover-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9000;
+    background: rgba(0,0,0,0.05);
+}
+
+.popover-box {
+    position: absolute;
+    background: #58cc02;
+    color: white;
+    width: 280px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    text-align: left;
+    animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.popover-arrow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #58cc02;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popover-box h4 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.popover-box p {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.btn-start-popover {
+    width: 100%;
+    background: white !important;
+    color: #58cc02 !important;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1) !important;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn-start-popover:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.1) !important;
+}
+
+
 .node.star {
     background: var(--duo-green);
     color: white;
@@ -244,6 +344,35 @@ body {
     background: var(--duo-gray);
     color: var(--duo-gray-dark);
     box-shadow: 0 6px 0 #bcbcbc;
+}
+
+/* Completed Nodes */
+.node.completed {
+    background: var(--duo-green);
+    color: white;
+    box-shadow: 0 6px 0 var(--duo-green-dark);
+}
+
+.node.chest-complete {
+    background: #ffd700;
+    color: white;
+    box-shadow: 0 6px 0 #cc9900;
+}
+
+.node.trophy-complete {
+    background: var(--duo-green);
+    color: white;
+    box-shadow: 0 6px 0 var(--duo-green-dark);
+}
+
+/* SVG Progress Ring */
+.progress-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .node:active {
@@ -386,3 +515,27 @@ body {
     color: white;
     box-shadow: 0 4px 0 var(--duo-blue-dark);
 }
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--duo-green);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-weight: 800;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(88, 204, 2, 0.4);
+    transform: translateY(120px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 9999;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+

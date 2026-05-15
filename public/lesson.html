@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Lección</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lesson.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="lesson-body">
+
+    <!-- Top Bar -->
+    <div class="lesson-top-bar">
+        <button class="close-btn" onclick="window.location.href='/'"><i class="fas fa-xmark"></i></button>
+        <div class="progress-bar-lesson">
+            <div class="progress-fill-lesson" id="lesson-progress"></div>
+        </div>
+        <div class="hearts">
+            <i class="fas fa-heart"></i> <span id="hearts-count">5</span>
+        </div>
+    </div>
+
+    <!-- Question Area -->
+    <div class="lesson-container" id="lesson-container">
+        <!-- Content is injected by JS -->
+    </div>
+
+    <!-- Bottom Feedback Bar (hidden by default) -->
+    <div class="feedback-bar" id="feedback-bar">
+        <div class="feedback-content">
+            <div class="feedback-icon" id="feedback-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="feedback-text">
+                <h3 id="feedback-title">¡Bien hecho!</h3>
+                <p id="feedback-detail"></p>
+            </div>
+        </div>
+        <button class="btn-continue" id="btn-continue" onclick="nextQuestion()">CONTINUAR</button>
+    </div>
+
+    <!-- Bottom Action Bar -->
+    <div class="action-bar" id="action-bar">
+        <button class="btn-skip" onclick="skipQuestion()">SALTAR</button>
+        <button class="btn-check" id="btn-check" onclick="checkAnswer()" disabled>COMPROBAR</button>
+    </div>
+
+    <script src="js/shared.js"></script>
+    <script src="js/lesson.js"></script>
+</body>
+</html>

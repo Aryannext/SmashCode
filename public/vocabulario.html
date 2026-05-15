@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Vocabulario Técnico</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar" id="main-sidebar"></nav>
+
+    <main class="content module-view">
+        <div class="module-header">
+            <i class="fas fa-book-medical header-icon"></i>
+            <div>
+                <h1>Vocabulario Técnico</h1>
+                <p>Domina el vocabulario médico en inglés que todo técnico en enfermería necesita.</p>
+            </div>
+        </div>
+
+        <div class="vocab-list" id="vocab-container">
+            <!-- Cards will be injected by JS -->
+        </div>
+    </main>
+
+    <script src="js/shared.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSidebar('vocabulario');
+            renderVocabCards();
+        });
+
+        const vocabData = [
+            { english: 'Blood Pressure', spanish: 'Presión Arterial', difficulty: 'medium' },
+            { english: 'Syringe', spanish: 'Jeringa', difficulty: 'hard' },
+            { english: 'Stethoscope', spanish: 'Estetoscopio', difficulty: 'hard' },
+            { english: 'Pills', spanish: 'Pastillas', difficulty: 'easy' },
+            { english: 'Thermometer', spanish: 'Termómetro', difficulty: 'medium' },
+            { english: 'Bandage', spanish: 'Vendaje', difficulty: 'easy' }
+        ];
+
+        function renderVocabCards() {
+            const container = document.getElementById('vocab-container');
+            container.innerHTML = '';
+            
+            vocabData.forEach((item, index) => {
+                let diffClass = '';
+                let diffText = '';
+                if (item.difficulty === 'easy') { diffClass = 'easy'; diffText = 'Fácil'; }
+                if (item.difficulty === 'medium') { diffClass = 'medium'; diffText = 'Medio'; }
+                if (item.difficulty === 'hard') { diffClass = 'hard'; diffText = 'Difícil'; }
+
+                const div = document.createElement('div');
+                div.className = 'vocab-card';
+                div.innerHTML = `
+                    <button class="btn-play-audio" onclick="playAudio('${item.english}')">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <div class="vocab-details">
+                        <h3 class="vocab-english">${item.english}</h3>
+                        <p class="vocab-spanish">${item.spanish}</p>
+                    </div>
+                    <div class="vocab-difficulty ${diffClass}">${diffText}</div>
+                    <button class="btn-mic" id="mic-btn-${index}" onclick="validatePronunciation(${index}, '${item.english}')">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Web Speech API - Text to Speech
+        function playAudio(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9; // Slightly slower for learning
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Tu navegador no soporta reproducción de audio.");
+            }
+        }
+
+        // Web Speech API - Speech Recognition
+        function validatePronunciation(index, expectedWord) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                alert("Tu navegador no soporta reconocimiento de voz. Usa Chrome.");
+                return;
+            }
+
+            const btn = document.getElementById(`mic-btn-${index}`);
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            recognition.onstart = () => {
+                btn.classList.add('listening');
+                btn.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
+            };
+
+            recognition.onresult = (event) => {
+                const spokenWord = event.results[0][0].transcript.toLowerCase();
+                const expected = expectedWord.toLowerCase().replace(/[^\w\s]/gi, '');
+                const spokenClean = spokenWord.replace(/[^\w\s]/gi, '');
+
+                btn.classList.remove('listening');
+                
+                // Simple validation (can be improved with fuzzy matching)
+                if (spokenClean.includes(expected) || expected.includes(spokenClean)) {
+                    btn.classList.add('success');
+                    btn.innerHTML = '<i class="fas fa-check"></i>';
+                    playAudio("Excellent!");
+                } else {
+                    btn.innerHTML = '<i class="fas fa-times" style="color: #ff4b4b;"></i>';
+                    setTimeout(() => {
+                        btn.innerHTML = '<i class="fas fa-microphone"></i>';
+                    }, 2000);
+                }
+            };
+
+            recognition.onerror = (event) => {
+                btn.classList.remove('listening');
+                btn.innerHTML = '<i class="fas fa-microphone"></i>';
+                console.error("Error de micrófono:", event.error);
+            };
+
+            recognition.onend = () => {
+                btn.classList.remove('listening');
+            };
+
+            recognition.start();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Perfil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar" id="main-sidebar"></nav>
+
+    <main class="content profile-layout">
+        <!-- Left Column (Profile Info & Stats) -->
+        <div class="profile-left">
+            <div class="profile-banner">
+                <button class="btn-edit-profile"><i class="fas fa-pencil-alt"></i></button>
+                <div class="profile-avatar">
+                    <!-- Placeholder avatar using FontAwesome to simulate the illustration -->
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+
+            <div class="profile-info-section">
+                <h1 class="profile-name">Cristian Cantillo Mejia</h1>
+                <p class="profile-username">Aryannext</p>
+                <p class="profile-joined">Se unió en mayo de 2025</p>
+
+                <div class="profile-social-stats">
+                    <div class="social-links">
+                        <a href="#">Siguiendo a 1</a>
+                        <a href="#">0 seguidores</a>
+                    </div>
+                    <div class="profile-flags">
+                        <img src="https://flagcdn.com/w40/us.png" alt="English" class="lang-flag">
+                        <img src="https://flagcdn.com/w40/jp.png" alt="Japanese" class="lang-flag">
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-stats-section">
+                <h2 class="section-title">Estadísticas</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-fire" style="color: #afafaf;"></i></div>
+                        <div class="stat-data">
+                            <h4>0</h4>
+                            <p>días de racha</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-bolt" style="color: #ffc800;"></i></div>
+                        <div class="stat-data">
+                            <h4>1652</h4>
+                            <p>EXP totales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-gem" style="color: #ff4b4b;"></i></div>
+                        <div class="stat-data">
+                            <h4>Rubí</h4>
+                            <p>división actual</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-medal" style="color: #ffc800;"></i></div>
+                        <div class="stat-data">
+                            <h4>2</h4>
+                            <p>veces en el top 3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column (Friends & Extras) -->
+        <div class="profile-right">
+            <!-- Top Status Bar (Only visible in desktop right column) -->
+            <div class="top-status-bar">
+                <div class="status-item"><img src="https://flagcdn.com/w20/us.png" alt="US"> 6</div>
+                <div class="status-item disabled"><i class="fas fa-fire"></i> 0</div>
+                <div class="status-item blue"><i class="fas fa-gem"></i> 788</div>
+                <div class="status-item red"><i class="fas fa-heart"></i> 5</div>
+            </div>
+
+            <!-- Friends Tab Box -->
+            <div class="friends-box">
+                <div class="friends-tabs">
+                    <button class="tab-btn active">SIGUIENDO</button>
+                    <button class="tab-btn">SEGUIDORES</button>
+                </div>
+                <div class="friends-list">
+                    <div class="friend-item">
+                        <div class="friend-avatar" style="background: #58cc02;">P</div>
+                        <div class="friend-info">
+                            <h4>Paola</h4>
+                            <p>462 EXP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Friends Box -->
+            <div class="add-friends-box">
+                <h3>Agregar amigos</h3>
+                <a href="#" class="add-friend-link">
+                    <div class="link-icon"><i class="fas fa-search" style="color: #1cb0f6;"></i></div>
+                    <span class="link-text">Encuentra a tus amigos</span>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </a>
+                <a href="#" class="add-friend-link">
+                    <div class="link-icon"><i class="fas fa-envelope-open-text" style="color: #ffc800;"></i></div>
+                    <span class="link-text">Invita a tus amigos</span>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </a>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="profile-footer-links">
+                <a href="#">ACERCA DE</a>
+                <a href="#">BLOG</a>
+                <a href="#">TIENDA</a>
+                <a href="#">EFICACIA</a>
+                <a href="#">EMPLEO</a>
+                <a href="#">INVERSIONISTAS</a>
+                <a href="#">TÉRMINOS</a>
+                <a href="#">PRIVACIDAD</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal-overlay" id="edit-profile-modal" style="display: none;">
+        <div class="modal-box">
+            <h2>Editar Perfil</h2>
+            <div class="form-group">
+                <label>Nombre Completo</label>
+                <input type="text" id="edit-name" class="input-field" value="Cristian Cantillo Mejia">
+            </div>
+            <div class="form-group">
+                <label>Usuario</label>
+                <input type="text" id="edit-username" class="input-field" value="Aryannext">
+            </div>
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeEditModal()">Cancelar</button>
+                <button class="btn-primary" onclick="saveProfile()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/shared.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSidebar('perfil');
+            loadProfileData();
+
+            document.querySelector('.btn-edit-profile').addEventListener('click', openEditModal);
+        });
+
+        function loadProfileData() {
+            const profile = JSON.parse(localStorage.getItem('smashcode_profile')) || {
+                name: 'Cristian Cantillo Mejia',
+                username: 'Aryannext'
+            };
+            document.querySelector('.profile-name').textContent = profile.name;
+            document.querySelector('.profile-username').textContent = profile.username;
+        }
+
+        function openEditModal() {
+            const name = document.querySelector('.profile-name').textContent;
+            const username = document.querySelector('.profile-username').textContent;
+            document.getElementById('edit-name').value = name;
+            document.getElementById('edit-username').value = username;
+            document.getElementById('edit-profile-modal').style.display = 'flex';
+        }
+
+        function closeEditModal() {
+            document.getElementById('edit-profile-modal').style.display = 'none';
+        }
+
+        function saveProfile() {
+            const name = document.getElementById('edit-name').value;
+            const username = document.getElementById('edit-username').value;
+            
+            localStorage.setItem('smashcode_profile', JSON.stringify({ name, username }));
+            
+            document.querySelector('.profile-name').textContent = name;
+            document.querySelector('.profile-username').textContent = username;
+            
+            closeEditModal();
+        }
+    </script>
+</body>
+</html>

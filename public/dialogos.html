@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmashCode - Diálogos Clínicos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar" id="main-sidebar"></nav>
+
+    <main class="content module-view">
+        <div class="module-header">
+            <i class="fas fa-comments header-icon" style="color: #1cb0f6;"></i>
+            <div>
+                <h1>Diálogos Clínicos</h1>
+                <p>Practica conversaciones reales en inglés con un asistente IA. Escenarios de hospital y consultorio.</p>
+            </div>
+        </div>
+
+        <div class="dialog-list">
+            <!-- Dialog 1 -->
+            <div class="dialog-card" onclick="window.location.href='/chat.html?scenario=intake'">
+                <div class="dialog-preview">
+                    <div class="dialog-avatar nurse"><i class="fas fa-user-nurse"></i></div>
+                    <div class="dialog-avatar patient"><i class="fas fa-user"></i></div>
+                </div>
+                <div class="dialog-info">
+                    <h3>Patient Intake</h3>
+                    <p>Admisión del paciente — Recoger datos personales, historial y motivo de consulta.</p>
+                    <div class="dialog-meta">
+                        <span class="dialog-level beginner"><i class="fas fa-signal"></i> Básico</span>
+                        <span class="dialog-duration"><i class="fas fa-clock"></i> ~5 min</span>
+                    </div>
+                </div>
+                <div class="dialog-arrow"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+            <!-- Dialog 2 -->
+            <div class="dialog-card" onclick="window.location.href='/chat.html?scenario=vitals'">
+                <div class="dialog-preview">
+                    <div class="dialog-avatar nurse"><i class="fas fa-user-nurse"></i></div>
+                    <div class="dialog-avatar patient"><i class="fas fa-user"></i></div>
+                </div>
+                <div class="dialog-info">
+                    <h3>Taking Vital Signs</h3>
+                    <p>Toma de signos vitales — Explicar procedimientos al paciente en inglés.</p>
+                    <div class="dialog-meta">
+                        <span class="dialog-level beginner"><i class="fas fa-signal"></i> Básico</span>
+                        <span class="dialog-duration"><i class="fas fa-clock"></i> ~5 min</span>
+                    </div>
+                </div>
+                <div class="dialog-arrow"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+            <!-- Dialog 3 -->
+            <div class="dialog-card" onclick="window.location.href='/chat.html?scenario=medication'">
+                <div class="dialog-preview">
+                    <div class="dialog-avatar nurse"><i class="fas fa-user-nurse"></i></div>
+                    <div class="dialog-avatar patient"><i class="fas fa-user"></i></div>
+                </div>
+                <div class="dialog-info">
+                    <h3>Medication Administration</h3>
+                    <p>Administración de medicamentos — Informar al paciente sobre dosis, vía y efectos.</p>
+                    <div class="dialog-meta">
+                        <span class="dialog-level intermediate"><i class="fas fa-signal"></i> Intermedio</span>
+                        <span class="dialog-duration"><i class="fas fa-clock"></i> ~7 min</span>
+                    </div>
+                </div>
+                <div class="dialog-arrow"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+            <!-- Dialog 4 -->
+            <div class="dialog-card" onclick="window.location.href='/chat.html?scenario=emergency'">
+                <div class="dialog-preview">
+                    <div class="dialog-avatar nurse" style="background:#ffdfe0;color:#ff4b4b;"><i class="fas fa-user-nurse"></i></div>
+                    <div class="dialog-avatar patient" style="background:#ffdfe0;color:#ff4b4b;"><i class="fas fa-user"></i></div>
+                </div>
+                <div class="dialog-info">
+                    <h3>Emergency Room</h3>
+                    <p>Sala de emergencias — Triaje rápido, priorización y comunicación urgente.</p>
+                    <div class="dialog-meta">
+                        <span class="dialog-level advanced"><i class="fas fa-signal"></i> Avanzado</span>
+                        <span class="dialog-duration"><i class="fas fa-clock"></i> ~10 min</span>
+                    </div>
+                </div>
+                <div class="dialog-arrow"><i class="fas fa-chevron-right"></i></div>
+            </div>
+
+            <!-- Dialog 5 (locked) -->
+            <div class="dialog-card locked">
+                <div class="dialog-preview">
+                    <div class="dialog-avatar locked-av"><i class="fas fa-lock"></i></div>
+                    <div class="dialog-avatar locked-av"><i class="fas fa-lock"></i></div>
+                </div>
+                <div class="dialog-info">
+                    <h3>Post-Operative Care</h3>
+                    <p>Cuidado post-operatorio — Instrucciones de recuperación y seguimiento.</p>
+                    <div class="dialog-meta">
+                        <span class="dialog-level locked-level"><i class="fas fa-lock"></i> Bloqueado</span>
+                    </div>
+                </div>
+                <div class="dialog-arrow"><i class="fas fa-lock" style="color:#ccc;"></i></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/shared.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSidebar('dialogos');
+        });
+    </script>
+</body>
+</html>
